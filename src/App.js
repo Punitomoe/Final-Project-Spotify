@@ -20,26 +20,31 @@ function App() {
       dispatch({
         type: "SET_TOKEN",
         token: _token,
-      })
+      });
 
       spotify.setAccessToken(_token);
-
-      spotify.getMe().then(user => {
+      spotify.getMe().then((user) => {
         dispatch({
-          type: 'SET_USER',
+          type: "SET_USER",
           user: user,
         });
       });
-    }
 
-    console.log('I Have a Token >>>', token);
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+      });
+    }
   }, []);
 
   // console.log('user', user);
   // console.log('alien', token);
 
   return (
-    <div className="app"> {token ? <Player spotify={spotify}/> : <Login/>}
+    <div className="app"> 
+      {token ? <Player spotify={spotify}/> : <Login/>}
     </div>
   );
 }
