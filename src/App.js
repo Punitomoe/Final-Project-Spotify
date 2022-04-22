@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Login from './Login/Login';
 import { getTokenFromUrl } from './Spotify/Spotify';
@@ -37,7 +37,7 @@ function App() {
         });
       });
 
-      spotify.getPlaylist('3f045f8452aa4231a249605378e21de7').then(response => 
+      spotify.getPlaylist('6rqhFgbbKwnb9MLmUQDhG6').then(response => 
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
           discover_weekly: response,

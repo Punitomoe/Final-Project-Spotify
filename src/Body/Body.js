@@ -2,17 +2,21 @@ import React from "react";
 import "./Body.css";
 import Header from "../Header/Header";
 import { useDataLayerValue } from "../DataLayer/DataLayer";
-import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import SongRow from "../SongRow/SongRow";
+import SearchForm from "../Header/SearchForm";
+// import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import SongRow from "../SongRow/SongRow";
 
 function Body({ spotify }){
     const [{ discover_weekly }, dispatch] = useDataLayerValue();
     return (
         <div className="body">
             <Header spotify={spotify}/>
-                <div className="body__info">
+            <SearchForm/>
+
+
+                {/* <div className="body__info">
                     <img 
                     src={discover_weekly?.images[0]} 
                     alt="" 
@@ -29,11 +33,12 @@ function Body({ spotify }){
                 <FavoriteIcon fontSize="large" />
                 <MoreHorizIcon />
             </div>
-            </div>
+            </div> */}
             {/* List of songs */}
-            {discover_weekly?.track.items.map(item => {
+            {/* {discover_weekly?.track.items.map(item => {
                 <SongRow track={item.track} />
-            })}
+            })} */}
+            
         </div>
     );
 }
